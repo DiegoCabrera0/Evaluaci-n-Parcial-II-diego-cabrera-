@@ -1,0 +1,21 @@
+// src/material-theme.scss
+@use '@angular/material' as mat;
+
+// Paletas de color
+$my-primary: mat.define-palette(mat.$blue);
+$my-accent: mat.define-palette(mat.$pink, 500, 300, 700);
+$my-warn: mat.define-palette(mat.$red);
+
+// Tema claro
+$my-light-theme: mat.define-light-theme((
+  color: (
+    primary: $my-primary,
+    accent: $my-accent,
+    warn: $my-warn,
+  ),
+  typography: mat.define-typography-config(), // tipografía por defecto
+  // density: lo quitamos porque no se acepta "0"
+));
+
+// Aplica tema a todos los componentes
+@include mat.all-component-themes($my-light-theme);
